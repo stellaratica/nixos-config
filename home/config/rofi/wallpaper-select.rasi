@@ -1,0 +1,18 @@
+/* Wallpaper Selector */
+
+@theme "~/.config/rofi/theme.rasi"
+
+configuration {
+  font: "JetBrainsMonoNL Nerd Font";
+}
+
+/* Window */
+
+window {
+  width: 960px;
+  height: 540px;
+  border-radius: 20px;
+  border-color: @main-br;
+  background-color: @main-bg;
+  children: [ mainbox ];
+}
