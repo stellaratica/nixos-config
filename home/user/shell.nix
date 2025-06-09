@@ -14,7 +14,7 @@
       l = "eza";
       ll = "eza -la";
       la = "eza -a";
-      nixswitch = "sudo nixos-rebuild switch";
+      nixswitch = "sudo nixos-rebuild switch --flake ~/.dotfiles";
       homeswitch = "home-manager switch --flake ~/.dotfiles";
       fullswitch = "nixswitch && homeswitch";
     };
