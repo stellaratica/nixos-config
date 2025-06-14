@@ -1,8 +1,11 @@
 {pkgs, ...}: {
-  environment.shells = with pkgs; [
-    bashInteractive
-    zsh
-  ];
+  environment = {
+    pathsToLink = ["/share/base-completion" "/share/zsh"]; # for command completion
+    shells = with pkgs; [
+      bashInteractive
+      zsh
+    ];
+  };
 
   users.defaultUserShell = pkgs.bashInteractive;
 
