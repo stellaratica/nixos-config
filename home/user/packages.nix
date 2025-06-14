@@ -4,11 +4,11 @@
     jetbrains.rust-rover
     jetbrains.rider
     gcc
+    go
     nil
     nodejs
     nodePackages.pnpm
     rustup
-    go
 
     # game stuff
     dolphin-emu
