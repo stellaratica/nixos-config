@@ -51,6 +51,8 @@
     which
     tree
     gnutar
+    openssl
+    pkg-config
     rsync
   ];
 }
