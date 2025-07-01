@@ -17,6 +17,8 @@
     # pre-made hardware configurations for specific/quirky systems
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
 
@@ -36,22 +38,21 @@
     self,
     nixpkgs,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
+  in {
     nixosConfigurations.silly-willy = nixpkgs.lib.nixosSystem {
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
+      inherit pkgs;
       specialArgs = {inherit inputs;};
       modules = [./system/configuration.nix];
     };
 
     homeConfigurations = {
       stellaratica = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
+        inherit pkgs;
         modules = [./home];
         extraSpecialArgs = {inherit inputs;};
       };
