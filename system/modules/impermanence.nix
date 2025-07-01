@@ -15,31 +15,6 @@
     files = [
       "/etc/machine-id"
     ];
-    users.stellaratica = {
-      directories = [
-        "Downloads"
-        "Pictures"
-        "src"
-        ".dotfiles"
-        ".librewolf"
-        {
-          directory = ".gnupg";
-          mode = "0700";
-        }
-        {
-          directory = ".ssh";
-          mode = "0700";
-        }
-        {
-          directory = ".local/share/keyrings";
-          mode = "0700";
-        }
-      ];
-      files = [
-        ".p10k.zsh"
-        "Passwords.kdbx"
-      ];
-    };
   };
 
   boot.initrd.postResumeCommands = lib.mkAfter ''
