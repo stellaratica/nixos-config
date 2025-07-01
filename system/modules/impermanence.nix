@@ -37,6 +37,7 @@
       ];
       files = [
         ".p10k.zsh"
+        "Passwords.kdbx"
       ];
     };
   };
