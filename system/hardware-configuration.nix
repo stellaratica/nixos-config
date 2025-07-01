@@ -17,8 +17,22 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXROOT";
-    fsType = "ext4";
+    device = "/dev/root_vg/root";
+    fsType = "btrfs";
+    options = ["subvol=root"];
+  };
+
+  fileSystems."/persist" = {
+    device = "/dev/root_vg/root";
+    fsType = "btrfs";
+    neededForBoot = true;
+    options = ["subvol=persist"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/root_vg/root";
+    fsType = "btrfs";
+    options = ["subvol=nix"];
   };
 
   fileSystems."/boot" = {
