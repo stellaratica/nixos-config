@@ -9,6 +9,7 @@
       "/var/lib/nixos"
       "/var/lib/cups"
       "/var/lib/systemd/coredump"
+      "/var/lib/sbctl"
       "/etc/NetworkManager/system-connections"
     ];
     files = [
