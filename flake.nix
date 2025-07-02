@@ -49,7 +49,8 @@
       specialArgs = {inherit inputs;};
       modules = [./system/configuration.nix];
     };
-
+    
+    # Standalone HM
     homeConfigurations = {
       stellaratica = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

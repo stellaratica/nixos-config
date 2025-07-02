@@ -2,7 +2,6 @@
   imports = [
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga401
-    inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ./modules
   ];
