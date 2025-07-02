@@ -4,8 +4,11 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = false;
+  programs = {
+    fuse.userAllowOther = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = false;
+    };
   };
 }
