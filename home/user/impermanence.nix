@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  imports = [impermanence.homeManagerModules.impermanence];
+  imports = [inputs.impermanence.homeManagerModules.impermanence];
   
   home.persistence."/persist/home/stellaratica" = {
     directories = [
