@@ -6,6 +6,7 @@
       "Downloads"
       "Pictures"
       "src"
+      ".cargo"
       ".config/nvim"
       ".dotfiles"
       ".gnupg"
