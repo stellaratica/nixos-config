@@ -13,6 +13,7 @@
       ".local/share/keyrings"
       ".local/share/nvim"
       ".local/state/nvim"
+      ".rustup"
       ".ssh"
       {
         directory = ".local/share/Steam";
