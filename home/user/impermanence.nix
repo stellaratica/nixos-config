@@ -1,6 +1,6 @@
 {inputs, ...}: {
   imports = [inputs.impermanence.homeManagerModules.impermanence];
-  
+
   home.persistence."/persist/home/stellaratica" = {
     directories = [
       "Downloads"
@@ -19,10 +19,11 @@
         directory = ".local/share/Steam";
         method = "symlink";
       }
-  ];
+    ];
     files = [
       ".p10k.zsh"
       "Passwords.kdbx"
     ];
+    allowOther = true;
   };
 }
