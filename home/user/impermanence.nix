@@ -8,6 +8,7 @@
       "src"
       ".cargo"
       ".config/nvim"
+      ".config/Ryujinx"
       ".dotfiles"
       ".gnupg"
       ".librewolf"
