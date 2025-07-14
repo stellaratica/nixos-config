@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # dev things
+    dotnet-sdk_9
     jetbrains.rust-rover
     jetbrains.rider
     gcc
@@ -14,6 +15,7 @@
     dolphin-emu
     itch
     prismlauncher
+    ryujinx
 
     # utils
     aseprite
