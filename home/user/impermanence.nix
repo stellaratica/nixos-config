@@ -9,6 +9,7 @@
       ".cargo"
       ".config/nvim"
       ".config/Ryujinx"
+      ".config/vesktop"
       ".dotfiles"
       ".gnupg"
       ".librewolf"
