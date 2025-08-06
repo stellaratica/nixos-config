@@ -17,6 +17,8 @@
     # pre-made hardware configurations for specific/quirky systems
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     impermanence.url = "github:nix-community/impermanence";
 
     lanzaboote = {
@@ -49,7 +51,7 @@
       specialArgs = {inherit inputs;};
       modules = [./system/configuration.nix];
     };
-    
+
     # Standalone HM
     homeConfigurations = {
       stellaratica = inputs.home-manager.lib.homeManagerConfiguration {
