@@ -29,7 +29,7 @@
         zulu8
       ];
     })
-    ryujinx
+    ryubing
 
     # utils
     aseprite
