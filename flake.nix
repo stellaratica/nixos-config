@@ -1,5 +1,5 @@
 {
-  description = "Stella's NixOS configuration for their linux laptop";
+  description = "Stella's NixOS configuration for their linux pc";
 
   inputs = {
     # official NixOS package source, using unstable by default
@@ -46,7 +46,7 @@
       config.allowUnfree = true;
     };
   in {
-    nixosConfigurations.silly-willy = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.cerulean = nixpkgs.lib.nixosSystem {
       inherit pkgs;
       specialArgs = {inherit inputs;};
       modules = [./system/configuration.nix];

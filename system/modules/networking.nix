@@ -1,6 +1,6 @@
 {...}: {
   networking = {
-    hostName = "silly-willy"; # duh
+    hostName = "cerulean"; # duh
     networkmanager.enable = true; # duh
   };
 

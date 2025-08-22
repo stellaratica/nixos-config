@@ -1,7 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.lanzaboote.nixosModules.lanzaboote
-    inputs.nixos-hardware.nixosModules.asus-zephyrus-ga401
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
     ./hardware-configuration.nix
     ./modules
   ];
