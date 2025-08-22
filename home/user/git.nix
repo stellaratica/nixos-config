@@ -2,6 +2,6 @@
   programs.git = {
     enable = true;
     userName = "stellaratica";
-    userEmail = "stellaratica";
+    userEmail = "stellaratica@gmail.com";
   };
 }
