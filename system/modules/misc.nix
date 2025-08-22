@@ -15,6 +15,7 @@
     flatpak.enable = true; # for certain otherwise unavailable packages
     gvfs.enable = true; # for stuff like trash
     gnome.gcr-ssh-agent.enable = false; # dont use the gnome one
+    hardware.openrgb.enable = true;
     kmscon = {
       enable = true;
       extraConfig = ''
