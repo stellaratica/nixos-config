@@ -60,6 +60,11 @@
     zsh.enable = true;
     ssh.startAgent = true;
     dconf.enable = true;
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
 
     thunar = {
       enable = true;

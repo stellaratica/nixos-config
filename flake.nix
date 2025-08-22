@@ -60,5 +60,7 @@
         extraSpecialArgs = {inherit inputs;};
       };
     };
+
+    formatter.x86_64-linux = pkgs.alejandra;
   };
 }

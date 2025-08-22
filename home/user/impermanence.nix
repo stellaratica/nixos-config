@@ -15,6 +15,8 @@
       ".librewolf"
       ".local/share/keyrings"
       ".local/share/nvim"
+      ".local/share/parallel-launcher"
+      ".local/share/PrismLauncher"
       ".local/state/nvim"
       ".rustup"
       ".ssh"

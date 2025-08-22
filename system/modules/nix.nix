@@ -16,4 +16,7 @@
   };
 
   nix.channel.enable = false; # im moving away from nix channels bc im so cool
+
+  programs.nix-index.enable = true;
+  programs.nix-index.enableZshIntegration = true;
 }

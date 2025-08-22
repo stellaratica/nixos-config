@@ -8,6 +8,8 @@
     packages = with pkgs; [
       # noto (yes i know it's google im sorry)
       noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
 
       # nerd fonts!
       nerd-fonts.symbols-only

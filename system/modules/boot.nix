@@ -7,7 +7,7 @@
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.lanzaboote = {
     enable = true;

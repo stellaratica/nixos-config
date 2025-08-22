@@ -1,15 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     # <nixos-hardware/asus/zephyrus/ga401>
@@ -55,8 +52,8 @@
     layout = "us";
     variant = "";
   };
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stellaratica = {
@@ -67,7 +64,7 @@
       "wheel"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [ ];
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -186,28 +183,28 @@
         }
       ];
       extraConfig = ''
-                session-control
+               session-control
 
-                palette=custom
+               palette=custom
 
-                palette-black=69, 71, 90
-        	palette-red=243, 139, 168
-        	palette-green=166, 227, 161
-        	palette-yellow=249, 226, 175
-        	palette-blue=137, 180, 250
-        	palette-magenta=245, 194, 231
-        	palette-cyan=148, 226, 213
-        	palette-light-grey=166, 173, 200
-        	palette-dark-grey=88, 91, 112
-        	palette-light-red=245, 130, 160
-        	palette-light-green=149, 224, 150
-        	palette-light-yellow=246, 222, 157
-        	palette-light-blue=131, 174, 254
-        	palette-light-magenta=248, 185, 230
-        	palette-light-cyan=123, 224, 210
-        	palette-white=186, 194, 222
-        	palette-foreground=205, 214, 244
-        	palette-background=30, 30, 46
+               palette-black=69, 71, 90
+        palette-red=243, 139, 168
+        palette-green=166, 227, 161
+        palette-yellow=249, 226, 175
+        palette-blue=137, 180, 250
+        palette-magenta=245, 194, 231
+        palette-cyan=148, 226, 213
+        palette-light-grey=166, 173, 200
+        palette-dark-grey=88, 91, 112
+        palette-light-red=245, 130, 160
+        palette-light-green=149, 224, 150
+        palette-light-yellow=246, 222, 157
+        palette-light-blue=131, 174, 254
+        palette-light-magenta=248, 185, 230
+        palette-light-cyan=123, 224, 210
+        palette-white=186, 194, 222
+        palette-foreground=205, 214, 244
+        palette-background=30, 30, 46
       '';
     };
 
@@ -230,12 +227,12 @@
   systemd.services."evremap@" = {
     description = "evremap - keyboard input remapper";
     # wantedBy = [ "multi-user.target" ];
-    bindsTo = [ "dev-%i.device" ];
-    after = [ "dev-%i.device" ];
+    bindsTo = ["dev-%i.device"];
+    after = ["dev-%i.device"];
 
     serviceConfig = {
       ExecStart = "${lib.getExe pkgs.evremap} remap ${
-        (pkgs.formats.toml { }).generate "evremap.toml" (
+        (pkgs.formats.toml {}).generate "evremap.toml" (
           lib.attrsets.filterAttrs (n: v: v != null) config.services.evremap.settings
         )
       }";
@@ -282,7 +279,6 @@
       ];
       UMask = "0027";
     };
-
   };
 
   hardware.bluetooth = {
@@ -322,10 +318,9 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
-
     # Set up PCI bus ids for gpus
     prime = {
       offload = {
@@ -390,5 +385,4 @@
       "suid"
     ];
   };
-
 }

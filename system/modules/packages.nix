@@ -21,6 +21,7 @@
     wget
     curl
     nmap
+    nss
     ipcalc
     iw
 

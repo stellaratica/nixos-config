@@ -142,7 +142,7 @@
     "max-length": 6
   },
   "custom/distro": {
-    "format": " ",
+    "format": " ",
     "tooltip": false
   },
   "idle_inhibitor": {

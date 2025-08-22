@@ -1,4 +1,8 @@
-{inputs, lib, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [inputs.impermanence.nixosModules.impermanence];
 
   environment.persistence."/persist" = {
