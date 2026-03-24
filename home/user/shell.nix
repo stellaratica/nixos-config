@@ -64,6 +64,8 @@
         l = "ls";
         ll = "ls -la";
         la = "ls -a";
+        nixswitch = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+        nixtest = "sudo nixos-rebuild test --flake ~/.dotfiles";
       };
     };
     carapace.enable = true;
