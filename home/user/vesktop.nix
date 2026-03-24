@@ -1,11 +1,19 @@
-{...}: {
+{inputs, ...}: let
+  pkgs-master = import inputs.nixpkgs-master {
+    system = "x86_64-linux";
+  };
+in {
   programs.vesktop = {
     enable = true;
+    package = pkgs-master.vesktop.override {
+      electron = pkgs-master.electron_39;
+    };
     settings = {
       arRPC = true;
       checkUpdates = false;
       discordBranch = "canary";
       disableMinSize = true;
+      hardwareVideoAcceleration = true;
       splashBackground = "#1e1e2e";
       splashColor = "#cba6f7";
       splashTheming = true;

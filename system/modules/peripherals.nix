@@ -14,10 +14,6 @@
 
   services.pulseaudio.enable = false;
 
-  # ================     Bluetooth     ================ #
-
-  hardware.bluetooth.enable = true; # im a simple chap
-
   # ================ Keyboard =================#
   services.keyd = {
     enable = true;
@@ -36,5 +32,6 @@
   services = {
     printing.enable = true; # CUPS support
     geoclue2.enable = true; # geolocation
+    joycond.enable = true;
   };
 }

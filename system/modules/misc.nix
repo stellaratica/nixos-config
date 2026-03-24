@@ -9,6 +9,8 @@
 
   users.defaultUserShell = pkgs.bashInteractive;
 
+  hardware.graphics.extraPackages = with pkgs; [rocmPackages.clr.icd];
+
   security.sudo.keepTerminfo = true;
 
   services = {
@@ -48,7 +50,7 @@
           package = pkgs.nerd-fonts.hack;
         }
       ];
-      hwRender = true;
+      # hwRender = true;
     };
 
     udev.extraRules = ''
@@ -75,4 +77,6 @@
       ];
     };
   };
+
+  virtualisation.docker.enable = true;
 }

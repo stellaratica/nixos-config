@@ -8,10 +8,11 @@
   users.users.stellaratica = {
     isNormalUser = true;
     initialHashedPassword = "$6$ucT/ZNWKI7Y4tQuJ$nzMl12scpx9pmKqZmeHJUVGx98PlGfz4aDMCKcNCkLi2HBZlrtoWvqisMkoUGWJTCgaI26hSVeAyRhkov4/CX0";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
     extraGroups = [
       "wheel"
       "networkmanager"
+      "docker"
     ];
   };
 

@@ -19,6 +19,41 @@
     files = [
       "/etc/machine-id"
     ];
+
+    users.stellaratica = {
+      directories = [
+        "IdeaProjects"
+        "Downloads"
+        "Pictures"
+        "src"
+        "Videos"
+        ".cargo"
+        ".config/dolphin-emu"
+        ".config/nvim"
+        ".config/obs-studio"
+        ".config/Ryujinx"
+        ".config/spotify"
+        ".config/vesktop"
+        ".config/VintagestoryData"
+        ".dotfiles"
+        ".gnupg"
+        ".librewolf"
+        ".local/share/dolphin-emu"
+        ".local/share/keyrings"
+        ".local/share/nvim"
+        ".local/share/parallel-launcher"
+        ".local/share/PrismLauncher"
+        ".local/share/Steam"
+        ".local/state/nvim"
+        ".rustup"
+        ".ssh"
+        ".var/app/org.vinegarhq.Sober"
+      ];
+      files = [
+        ".p10k.zsh"
+        "Passwords.kdbx"
+      ];
+    };
   };
 
   boot.initrd.postResumeCommands = lib.mkAfter ''

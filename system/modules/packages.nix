@@ -16,6 +16,7 @@
     gnugrep
     gnused
     gawk
+    jq
 
     # networking tools
     wget
@@ -52,8 +53,10 @@
     which
     tree
     gnutar
+    grim
     openssl
     pkg-config
     rsync
+    slurp
   ];
 }

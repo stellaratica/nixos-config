@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   ...
@@ -11,6 +12,7 @@ in {
     # task manager but for linux and it's also way better than task manager
     btop = {
       enable = true;
+      package = pkgs.btop-rocm;
       settings = {
         theme_background = false;
       };
@@ -31,6 +33,18 @@ in {
     librewolf.enable = true; # firefox fork
     obsidian.enable = true; # note-taking app
 
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-vaapi
+        obs-gstreamer
+        obs-vkcapture
+      ];
+    };
+
     # pretty spotify
     spicetify = {
       enable = true;
@@ -45,6 +59,15 @@ in {
       colorScheme = "mocha";
     };
 
+    swappy = {
+      enable = true;
+      settings = {
+        Default = {
+          save_dir = "$HOME/Pictures/Screenshots/";
+        };
+      };
+    };
+
     # terminal file manager (sexy)
     yazi = {
       enable = true;
@@ -55,5 +78,7 @@ in {
         sort_dir_first = true;
       };
     };
+
+    zsh.dotDir = "${config.xdg.configHome}/zsh";
   };
 }

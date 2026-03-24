@@ -26,13 +26,13 @@
     device = "/dev/root_vg/root";
     fsType = "btrfs";
     neededForBoot = true;
-    options = ["subvol=persist"];
+    options = ["subvol=persist" "compress=zstd:1"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/root_vg/root";
     fsType = "btrfs";
-    options = ["subvol=nix"];
+    options = ["subvol=nix" "compress=zstd:1"];
   };
 
   fileSystems."/boot" = {
@@ -43,13 +43,14 @@
 
   fileSystems."/home/stellaratica/games" = {
     label = "games";
-    fsType = "ext4";
+    fsType = "btrfs";
     options = [
       "nofail"
       "users"
       "exec"
       "dev"
       "suid"
+      "compress=zstd:3"
     ];
   };
 

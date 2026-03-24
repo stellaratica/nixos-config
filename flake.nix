@@ -4,7 +4,8 @@
   inputs = {
     # official NixOS package source, using unstable by default
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05"; # new stable finally!!!
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11"; # new stable finally!!!
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
     # home-manager, for user configuration
     home-manager = {
@@ -34,6 +35,8 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     catppuccin.url = "github:catppuccin/nix";
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -46,10 +49,16 @@
       config.allowUnfree = true;
     };
   in {
-    nixosConfigurations.cerulean = nixpkgs.lib.nixosSystem {
-      inherit pkgs;
-      specialArgs = {inherit inputs;};
-      modules = [./system/configuration.nix];
+    nixosConfigurations = {
+      cerulean = nixpkgs.lib.nixosSystem {
+        inherit pkgs;
+        specialArgs = {inherit inputs;};
+        modules = [./system/configuration.nix];
+      };
+      live = nixpkgs.lib.nixosSystem {
+        inherit pkgs;
+        modules = [(nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")];
+      };
     };
 
     # Standalone HM
