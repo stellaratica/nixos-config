@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs = {
     zsh = {
@@ -37,9 +37,39 @@
     nushell = {
       enable = true;
       extraConfig = ''
-        let carapace_completer = {|spans|
-        carapace $spans.0 nushell ...$spans | from json
+        let carapace_completer = {|spans: list<string>|
+          CARAPACE_LENIENT=1 carapace $spans.0 nushell ...$spans | from json
+          | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
         }
+        $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+
+        let fish_completer = {|spans|
+          ${lib.getExe pkgs.fish} --command $'complete "--do-complete=($spans | str join " ")"'
+          | $"value(char tab)description(char newline)" + $in
+          | from tsv --flexible --no-infer
+        }
+
+        let multiple_completers = {|spans|
+          let expanded_alias = scope aliases
+            | where name == $spans.0
+            | get -o 0.expansion
+
+            let spans = if $expanded_alias != null {
+              $spans
+              | skip 1
+              | prepend ($expanded_alias | split row ' ' | take 1)
+            } else {
+              $spans
+            }
+          ## alias fixer end
+
+          match $spans.0 {
+            nu => $fish_completer
+            git => $fish_completer
+            _ => $carapace_completer
+          } | do $in $spans
+        }
+
         $env.config = {
           show_banner: false,
           completions: {
@@ -49,7 +79,7 @@
             external: {
               enable: true
               max_results: 100
-              completer: $carapace_completer
+              completer: $multiple_completers
             }
           }
         }
