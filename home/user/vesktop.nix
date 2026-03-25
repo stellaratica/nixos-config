@@ -1,13 +1,13 @@
 {inputs, ...}: let
-  pkgs-master = import inputs.nixpkgs-master {
-    system = "x86_64-linux";
-  };
+  # pkgs-master = import inputs.nixpkgs-master {
+  #   system = "x86_64-linux";
+  # };
 in {
   programs.vesktop = {
     enable = true;
-    package = pkgs-master.vesktop.override {
-      electron = pkgs-master.electron_39;
-    };
+    # package = pkgs-master.vesktop.override {
+    #   electron = pkgs-master.electron_39;
+    # };
     settings = {
       arRPC = true;
       checkUpdates = false;
