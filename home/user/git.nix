@@ -7,5 +7,6 @@
         email = "stellaratica@gmail.com";
       };
     };
+    signing.format = null;
   };
 }

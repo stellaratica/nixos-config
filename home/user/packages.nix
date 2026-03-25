@@ -36,7 +36,7 @@ in {
     pkgs-stable.parallel-launcher
     (prismlauncher.override {
       # Add libraries required by some mods
-      additionalLibs = [at-spi2-atk cairo cups dbus expat glib libdrm libgbm libxkbcommon nspr nss pango xorg.libxcb xorg.libXcomposite xorg.libXdamage xorg.libXfixes];
+      additionalLibs = [at-spi2-atk cairo cups dbus expat glib libdrm libgbm libxkbcommon nspr nss pango libxcb libXcomposite libXdamage libXfixes];
 
       # Add Zulu jdks
       jdks = [

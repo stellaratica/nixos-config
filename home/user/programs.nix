@@ -77,6 +77,7 @@ in {
         show_hidden = true;
         sort_dir_first = true;
       };
+      shellWrapperName = "y";
     };
 
     zsh.dotDir = "${config.xdg.configHome}/zsh";
