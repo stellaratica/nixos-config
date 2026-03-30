@@ -2,19 +2,20 @@
   home.packages = with pkgs; [
     # dev things
     dotnet-sdk_9
-    jetbrains.rust-rover
-    jetbrains.rider
     gcc
     go
+    # jetbrains.rust-rover
+    # jetbrains.rider
     nil
     nodejs
     nodePackages.pnpm
+    python3
     rustup
 
     # game stuff
     dolphin-emu
     itch
-    parallel-launcher
+    # parallel-launcher
     (prismlauncher.override {
       # Add libraries required by some mods
       additionalLibs = [at-spi2-atk cairo cups dbus expat glib libdrm libgbm libxkbcommon nspr nss pango xorg.libxcb xorg.libXcomposite xorg.libXdamage xorg.libXfixes];
