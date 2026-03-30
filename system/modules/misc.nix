@@ -40,6 +40,8 @@
         palette-white=186, 194, 222
         palette-foreground=205, 214, 244
         palette-background=30, 30, 46
+
+        drm
       '';
       fonts = [
         {
@@ -47,7 +49,6 @@
           package = pkgs.nerd-fonts.hack;
         }
       ];
-      hwRender = true;
     };
 
     udev.extraRules = ''
