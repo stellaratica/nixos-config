@@ -276,7 +276,7 @@
       "warning": 20,
       "critical": 10
     },
-    "full-at": 60,
+    "full-at": 80,
     "format": "{icon} {capacity}%",
     "format-icons": [
       "󰂎",
