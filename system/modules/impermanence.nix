@@ -19,6 +19,33 @@
     files = [
       "/etc/machine-id"
     ];
+    users.stellaratica = {
+      directories = [
+        "cs-11"
+        "Downloads"
+        "Pictures"
+        "src"
+        ".cargo"
+        ".config/nvim"
+        ".config/Ryujinx"
+        ".config/vesktop"
+        ".dotfiles"
+        ".librewolf"
+        ".local/share/direnv"
+        ".local/share/nvim"
+        ".local/share/parallel-launcher"
+        ".local/share/PrismLauncher"
+        ".local/share/Steam"
+        ".local/state/nvim"
+        ".rustup"
+        { directory = ".ssh"; mode = "0700"; }
+        { directory = ".gnupg"; mode = "0700"; }
+        { directory = ".local/share/keyrings"; mode = "0700"; }
+      ];
+      files = [
+        ".p10k.zsh"
+      ];
+    };
   };
 
   boot.initrd.postResumeCommands = lib.mkAfter ''
