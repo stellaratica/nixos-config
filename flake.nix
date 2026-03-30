@@ -4,7 +4,7 @@
   inputs = {
     # official NixOS package source, using unstable by default
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05"; # new stable finally!!!
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11"; # new stable finally!!!
 
     # home-manager, for user configuration
     home-manager = {
@@ -24,7 +24,7 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
 
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # various optimizations
