@@ -49,7 +49,7 @@
         }
 
         let hacky_zsh_completer = {|spans|
-          carapace --macro bridge.Zsh ...$spans | from json
+          carapace --macro bridge.Zsh ...$spans | from json | get values
         }
 
         let multiple_completers = {|spans|
