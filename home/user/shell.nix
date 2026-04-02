@@ -39,7 +39,6 @@
       extraConfig = ''
         let carapace_completer = {|spans: list<string>|
           CARAPACE_LENIENT=1 carapace $spans.0 nushell ...$spans | from json
-          | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
         }
         $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
@@ -47,6 +46,10 @@
           ${lib.getExe pkgs.fish} --command $'complete "--do-complete=($spans | str join " ")"'
           | $"value(char tab)description(char newline)" + $in
           | from tsv --flexible --no-infer
+        }
+
+        let hacky_zsh_completer = {|spans|
+          carapace --macro bridge.Zsh ...$spans | from json
         }
 
         let multiple_completers = {|spans|
@@ -64,8 +67,9 @@
           ## alias fixer end
 
           match $spans.0 {
-            nu => $fish_completer
             git => $fish_completer
+            nu => $fish_completer
+            nix => $hacky_zsh_completer
             _ => $carapace_completer
           } | do $in $spans
         }
