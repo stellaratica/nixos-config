@@ -19,6 +19,7 @@ in
     davinci-resolve # video editor
     kdePackages.kdenlive # other video editor (hevc and aac support)
     vlc # video player
+    mpv # video player but with hdr support
 
     # dev things
     dotnet-sdk_9
