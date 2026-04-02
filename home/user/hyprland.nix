@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs = {
     waybar.enable = true;
   };
@@ -13,11 +14,14 @@
       enable = true;
       iconTheme = {
         name = "Papirus-Dark";
-        package = pkgs.catppuccin-papirus-folders.override {accent = "mauve";};
+        package = pkgs.catppuccin-papirus-folders.override { accent = "mauve"; };
       };
       settings.global.icon_path = lib.mkAfter ":${config.home.profileDirectory}/share/icons/${config.services.dunst.iconTheme.name}/${config.services.dunst.iconTheme.size}/panel";
     };
-    swww.enable = true;
+    swww = {
+      enable = true;
+      package = pkgs.awww;
+    };
     wlsunset = {
       enable = true;
       latitude = 37.1;
@@ -26,7 +30,7 @@
   };
 
   home.packages = with pkgs; [
-    (rofi.override {plugins = [pkgs.rofi-calc];})
+    (rofi.override { plugins = [ pkgs.rofi-calc ]; })
     libnotify
   ];
 }
