@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   pkgs-stable = import inputs.nixpkgs-stable {
     system = "x86_64-linux";
     config.allowUnfree = true;
@@ -11,7 +12,8 @@
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
-in {
+in
+{
   home.packages = with pkgs; [
     strawberry # music player
     davinci-resolve # video editor
@@ -26,7 +28,7 @@ in {
     go
     nil
     nodejs
-    nodePackages.pnpm
+    pnpm
     python3
     rustup
 
@@ -36,7 +38,24 @@ in {
     pkgs-stable.parallel-launcher
     (prismlauncher.override {
       # Add libraries required by some mods
-      additionalLibs = [at-spi2-atk cairo cups dbus expat glib libdrm libgbm libxkbcommon nspr nss pango libxcb libXcomposite libXdamage libXfixes];
+      additionalLibs = [
+        at-spi2-atk
+        cairo
+        cups
+        dbus
+        expat
+        glib
+        libdrm
+        libgbm
+        libxkbcommon
+        nspr
+        nss
+        pango
+        libxcb
+        libXcomposite
+        libXdamage
+        libXfixes
+      ];
 
       # Add Zulu jdks
       jdks = [
