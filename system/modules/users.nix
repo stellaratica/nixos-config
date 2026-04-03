@@ -1,9 +1,11 @@
 {
+  lib,
   inputs,
   pkgs,
   ...
-}: {
-  imports = [inputs.home-manager.nixosModules.home-manager];
+}:
+{
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   users.users.stellaratica = {
     isNormalUser = true;
@@ -16,13 +18,13 @@
     ];
   };
 
-  users.users.root.initialHashedPassword = "$6$wskptZ5YQeXsCOE8$Rs/I5K5eR4fEHFd02B5uMIQtspEiwUKr5rILjmJso7y9vk1czbc4iTVzCyZ/IlMpyudDae.UkpQqNx0xx.9Hu0";
+  users.users.root.initialHashedPassword = lib.mkDefault "$6$wskptZ5YQeXsCOE8$Rs/I5K5eR4fEHFd02B5uMIQtspEiwUKr5rILjmJso7y9vk1czbc4iTVzCyZ/IlMpyudDae.UkpQqNx0xx.9Hu0";
 
   # home-manager
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.extraSpecialArgs = {inherit inputs;};
+  home-manager.extraSpecialArgs = { inherit inputs; };
 
   home-manager.users.stellaratica = import ../../home;
 }
