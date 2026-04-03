@@ -39,37 +39,44 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
-    };
-  in {
-    nixosConfigurations = {
-      cerulean = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
-        specialArgs = {inherit inputs;};
-        modules = [./system/configuration.nix];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
       };
-      live = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
-        modules = [(nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")];
+    in
+    {
+      nixosConfigurations = {
+        cerulean = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
+          specialArgs = { inherit inputs; };
+          modules = [ ./system/configuration.nix ];
+        };
+        live = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
+          specialArgs = { inherit inputs; };
+          modules = [
+            (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
+            ./system/configuration.nix
+          ];
+        };
       };
-    };
 
-    # Standalone HM
-    homeConfigurations = {
-      stellaratica = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [./home];
-        extraSpecialArgs = {inherit inputs;};
+      # Standalone HM
+      homeConfigurations = {
+        stellaratica = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home ];
+          extraSpecialArgs = { inherit inputs; };
+        };
       };
-    };
 
-    formatter.x86_64-linux = pkgs.alejandra;
-  };
+      formatter.x86_64-linux = pkgs.alejandra;
+    };
 }
