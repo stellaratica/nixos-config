@@ -29,6 +29,7 @@
         "src"
         "Videos"
         ".cargo"
+        ".config/aseprite"
         ".config/dolphin-emu"
         ".config/nvim"
         ".config/obs-studio"
