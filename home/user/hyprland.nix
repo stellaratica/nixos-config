@@ -18,9 +18,8 @@
       };
       settings.global.icon_path = lib.mkAfter ":${config.home.profileDirectory}/share/icons/${config.services.dunst.iconTheme.name}/${config.services.dunst.iconTheme.size}/panel";
     };
-    swww = {
+    awww = {
       enable = true;
-      package = pkgs.awww;
     };
     wlsunset = {
       enable = true;
