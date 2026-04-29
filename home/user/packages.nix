@@ -8,7 +8,7 @@
     # jetbrains.rider
     nil
     nodejs
-    nodePackages.pnpm
+    pnpm
     python3
     rustup
 
