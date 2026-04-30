@@ -37,6 +37,11 @@
     catppuccin.url = "github:catppuccin/nix";
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    uwu-colors = {
+      url = "github:q60/uwu_colors";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
