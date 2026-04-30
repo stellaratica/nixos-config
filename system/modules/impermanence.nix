@@ -37,12 +37,11 @@
         ".config/r2modmanPlus-local"
         ".config/Ryujinx"
         ".config/spotify"
-        ".config/vesktop"
+        ".config/vesktop/sessionData"
         ".config/VintagestoryData"
         ".dotfiles"
         ".gnupg"
         ".librewolf"
-        ".local/bin/me3"
         ".local/share/dolphin-emu"
         ".local/share/keyrings"
         ".local/share/me3"
@@ -56,6 +55,7 @@
         ".var/app/org.vinegarhq.Sober"
       ];
       files = [
+        ".local/bin/me3"
         ".p10k.zsh"
         "Passwords.kdbx"
       ];
