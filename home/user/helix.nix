@@ -335,35 +335,37 @@
         };
     };
 
-    languages = [
-      {
-        name = "nix";
-        language-servers = [
-          "nil"
-          "uwu-colors"
-        ];
-      }
-      {
-        name = "lua";
-        language-servers = [ "lua-language-server" ];
-      }
-    ];
+    languages = {
+      language = [
+        {
+          name = "nix";
+          language-servers = [
+            "nil"
+            "uwu-colors"
+          ];
+        }
+        {
+          name = "lua";
+          language-servers = [ "lua-language-server" ];
+        }
+      ];
 
-    language-server = {
-      nil = {
-        command = lib.getExe pkgs.nil;
-        config.nil.formatting.command = [
-          "${lib.getExe pkgs.nixfmt}"
-          "-q"
-        ];
-      };
+      language-server = {
+        nil = {
+          command = lib.getExe pkgs.nil;
+          config.nil.formatting.command = [
+            "${lib.getExe pkgs.nixfmt}"
+            "-q"
+          ];
+        };
 
-      lua-language-server = {
-        command = lib.getExe pkgs.lua-language-server;
-      };
+        lua-language-server = {
+          command = lib.getExe pkgs.lua-language-server;
+        };
 
-      uwu-colors = {
-        command = "${inputs.uwu-colors.packages.${pkgs.system}.default}/bin/uwu_colors";
+        uwu-colors = {
+          command = "${inputs.uwu-colors.packages.${pkgs.system}.default}/bin/uwu_colors";
+        };
       };
     };
 
