@@ -21,7 +21,7 @@ hl.monitor({
 	max_avg_luminance   = 200
 })
 
-hl.monitor({ output = "DP-1", mode = "1920x1080@60", position = "auto-left", scale = "auto" })
+hl.monitor({ output = "DP-2", mode = "1920x1080@60", position = "auto-left", scale = "auto" })
 
 
 ------------------
@@ -62,6 +62,7 @@ hl.config({
 
 hl.permission({ binary = "/nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim", type = "screencopy", mode = "allow" })
 hl.permission({ binary = "/nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped", type = "screencopy", mode = "allow" })
+hl.permission({ binary = "/nix/store/[a-z0-9]{32}-hyprland-[0-9.]*.*/bin/hyprpm", type = "plugin", mode = "allow"})
 
 
 -----------------------
@@ -105,7 +106,7 @@ hl.config({
 			size     = 3,
 			passes   = 1,
 			vibrancy = 0.1696,
-		}
+		},
 	},
 
 	animations = {
@@ -121,7 +122,7 @@ hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}  } })
 
 -- Default springs
-hl.curve("easy",           { type = "spring", mass = 1, stiffness, 71.2633, dampening = 15.8273644 })
+hl.curve("easy",           { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
 
 hl.animation({ leaf = "global",        enabled = true, speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true, speed = 5.39, bezier = "easeOutQuint" })
@@ -237,7 +238,7 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + F4",        hl.dsp.window.kill())
 hl.bind(mainMod .. " + period",    hl.dsp.window.signal({ signal = 19 }))
-hl.bind(mainMod .. " + comma",     hl.dsp.window.signal({ singal = 18 }))
+hl.bind(mainMod .. " + comma",     hl.dsp.window.signal({ signal = 18 }))
 hl.bind(mainMod .. " + M",         hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()"))
 hl.bind(mainMod .. " + E",         hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(altFileManager))
@@ -245,7 +246,7 @@ hl.bind(mainMod .. " + W",         hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P",         hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J",         hl.dsp.layout("togglesplit"))
 
-for _,v in ipairs({"left", "right", "up", "down"}) do
+for _,key in ipairs({"left", "right", "up", "down"}) do
 	hl.bind(mainMod .. " + " .. key,                hl.dsp.focus({ direction = key }))
 	hl.bind(mainMod .. " + SHIFT + " .. key,        hl.dsp.window.move({ direction = key}))
 	hl.bind(mainMod .. " + CTRL + SHIFT + " .. key, hl.dsp.window.swap({ direction = key }))
@@ -255,7 +256,6 @@ for i = 1, 10 do
   local key = i % 10 -- 10 maps to key 0
   hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i}))
   hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-  hl.bind(mainMod .. " + CTRL + SHIFT + " .. key, hl.dsp)
 end
 
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
@@ -333,7 +333,7 @@ hl.window_rule({
 	match = { class = "clipse" },
 
 	float = true,
-	size = "622 652"
+	size = "622 652",
 	stay_focused = true 
 })
 
