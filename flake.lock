@@ -918,7 +918,8 @@
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable_2",
-        "spicetify-nix": "spicetify-nix"
+        "spicetify-nix": "spicetify-nix",
+        "uwu-colors": "uwu-colors"
       }
     },
     "rust-overlay": {
@@ -988,6 +989,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "uwu-colors": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774287463,
+        "narHash": "sha256-gRoDt12wBOfkZOEdAZJaqfZPrCnC+qjal6LcuacE81M=",
+        "owner": "q60",
+        "repo": "uwu_colors",
+        "rev": "cf818157de5ff29b82b18a0d585476e29bad988a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "q60",
+        "repo": "uwu_colors",
         "type": "github"
       }
     },
