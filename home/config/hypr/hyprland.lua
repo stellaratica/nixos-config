@@ -279,7 +279,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 
 hl.bind(mainMod .. " + SHIFT + F11", hl.dsp.window.fullscreen())
 
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("pkill -x rofi || rofi -show drun -disable-history -show-icons -config '$HOME/.config/rofi/app-launcher.rasi'"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("pkill -x rofi || rofi -show drun -disable-history -show-icons -config $HOME/.config/rofi/app-launcher.rasi"))
 
 hl.bind(mainMod .. " + B",         hl.dsp.exec_cmd("librewolf"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("librewolf -P school"))
